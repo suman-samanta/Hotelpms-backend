@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+
+		<style>
+			
+			.invoice-box {
+				max-width: 800px;
+				margin: auto;
+				padding: 30px;
+				border: 1px solid #eee;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+				font-size: 16px;
+				line-height: 24px;
+				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+				color: #555;
+			}
+
+			.invoice-box table {
+				width: 100%;
+				line-height: inherit;
+				text-align: left;
+			}
+
+			.invoice-box table td {
+				padding: 5px;
+				vertical-align: top;
+			}
+			.text-right {
+				text-align: right;
+			}
+			.text-center {
+				 text-align: center;
+			 }
+ 
+			 .mb-5 {
+				 margin-bottom: 5px;
+			 }
+		</style>
+	</head>
+	
+	<body>
+		
+		
+		<div class="invoice-box">
+			<h1 class="text-center mb-5">Invoice</h1>
+			<table cellpadding="0" cellspacing="0">
+				<tr class="top">
+					<td colspan="2">
+						<table>
+							<tbody>
+								<% displayData.forEach(function(item) { %> 
+									<tr class="text-center">
+										<td>Date: <%= item.today%></td>
+										
+											<td class="text-right">Booking Date: <%= item.today%></td>
+									</tr>
+									<% }); %>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="information">
+					<td colspan="2">
+						<table>
+							<tbody>
+								<% displayData.forEach(function(item) { %> 
+									
+								<tr class="customer-info">
+									
+									<td class="text-right">Customer ph no: <%= item.guestContact%></td>
+								</tr>
+								<% item.roomdetails.forEach(function(room){%>
+								<tr class="customer-info">
+									<td >Guest name: <%= room.guestName%> </td>
+									
+								</tr>
+								<% }) %>
+								<% }) %>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+       
+				<tr>
+					<td colspan="2">
+						<table class="table table-dark">
+							<thead>
+								<tr class="text-center">
+									<th>Room No</th>
+									<th>Room Type</th>
+									<th>Room Price</th>
+									<th>Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% displayData.forEach(function(item) { %> 
+									
+									<% item.roomdetails.forEach(function(room){%>
+								<tr class="text-center">
+									<td><%=room.roomNo%></td>
+									<td><%=room.roomType%></td>
+									<td><%=room.roomPrice%></td>
+									<% }); %>
+									<td><%=item.totalPrice%></td>
+								</tr>
+								
+								
+								
+								<% }) %>
+							</tbody>
+						</table>
+						<hr>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2">
+						<table>
+							<tbody>
+
+								<% displayData.forEach(function(item) { %> 
+									
+									<td>
+										<td class="text-right">
+											<p>Advance Payment: <%= item.advancePayment%></p>
+											<p>Remaining Payment: <%= item.lastPayment%></p>
+										</td>
+									</td>
+								</tr>
+								
+									
+								<% }) %>
+							</tbody>
+							<td>Hotel Manager Name</td>
+						</table>
+					</td>
+				</tr>             
+			</table>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+

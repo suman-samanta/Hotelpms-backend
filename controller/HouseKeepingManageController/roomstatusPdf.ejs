@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="https://scontent.fccu2-2.fna.fbcdn.net/v/t39.30808-6/306795487_179700054624122_6771271795673655793_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=iF-G4wDZNfQAX-Mmt5S&_nc_ht=scontent.fccu2-2.fna&oh=00_AT8XjEFkJPXAPpaj1bYmTS9GLuIEaXNhdW7zZsVTAyKMhg&oe=635589EC" type="image/x-icon">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title>  </title>
+</head>
+
+    <body>
+        
+
+            <div class="container">
+                <span>
+                    <h1 class="text-center mb-5"> Room Status Table </h1>
+                </span>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col"> Roon No </th>
+                            <th scope="col"> Room Status </th>
+                            <th scope="col"> Cleaning Date </th>
+                            <th scope="col"> Assigned </th>
+                            <th scope="col"> Report </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <% let count = 0;
+                        if(displayData.length > 0) {
+                            for (let roomStatus of displayData) { %>
+                            <% const p = roomStatus.id %>
+
+
+                            <tr class="text-center">
+                                
+                                <th scope="row"> <%=roomStatus.roomNo%> </th>
+                                <td> <%=roomStatus.roomStatus%> </td>
+                                <td> <%=roomStatus.cleaningDate%> </td>
+                                <td> <%=roomStatus.assigned%> </td>
+                                <td> <%=roomStatus.report%> </td>
+                            </tr>
+                       
+                            <% } } else { %>
+                                <td rowspan="7"> No data Found </td>
+                            <% } %>
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+
+          
+    </body>
+
+</html>
